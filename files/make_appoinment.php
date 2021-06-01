@@ -258,11 +258,23 @@
                         <form action="" method="POST">
                             <div class="form-group mb-3">
                                 <label for="">Patient Name</label>
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="name" class="form-control" value="<?php 
+                                 $hospital_registration_number = $_GET['hospital_registration_number'];
+               $query = mysqli_query($con, "select * from patient WHERE hospital_registration_number  ='$hospital_registration_number'");while ($res = mysqli_fetch_array($query)) {?><?php echo $res['first_name']; ?> <?php
+
+                        }
+               
+	 				?>">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="">Patient Id</label>
-                                <input type="text" name="patient_id" class="form-control">
+                                <input type="text" name="patient_id" class="form-control" value="<?php 
+                                 $hospital_registration_number = $_GET['hospital_registration_number'];
+               $query = mysqli_query($con, "select * from patient WHERE hospital_registration_number  ='$hospital_registration_number'");while ($res = mysqli_fetch_array($query)) {?><?php echo $res['hospital_registration_number']; ?> <?php
+
+                        }
+               
+	 				?>">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="">Event Date & Time</label>
