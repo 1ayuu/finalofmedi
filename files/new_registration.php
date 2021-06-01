@@ -6,14 +6,37 @@
 <style>
 body {  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url('5.jpg');
+  
  background-repeat: no-repeat;
   background-attachment: fixed;  
   background-size: cover;}
+  .topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
-  width: 100%;
+  width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -153,6 +176,15 @@ span.psw {
 	</script>
 </head>
 <body >
+
+<div class="topnav">
+  <a  href="admin_homepage.php">Home</a> 
+  <a href="./archive.php">Archives</a>
+  <a href="./patients_listview.php"> Patients List</a>
+  <a class="active" href="./new_registration.php">New Registration</a>
+  <a href="./logout.php">Logout</a>
+</div>
+
 	<center>
 	<h2> Registration Form</h2>
 	<form  action=""  class="modal-content animate" method="POST">
@@ -185,6 +217,14 @@ span.psw {
         <br>
         <label>Father's Name</label>
 		<input type="text" name="father_name" required>
+		<br/>
+		<br>
+        <label>Blood type</label>
+		<input type="text" name="blood" >
+		<br/>
+		<br>
+        <label>Body tempertaure</label>
+		<input type="text" name="tempertaure" >
 		<br/>
 		<!--<label>Patient's Registrayion Number</label>
 		<input type="text" name="patient_registration_no" required>
@@ -290,14 +330,16 @@ if (isset($_POST['registration_submit'])) {
     $citizenship_number = $_POST['citizenshipnumber'];
     $father_name = $_POST['father_name'];
     $email_address = $_POST['email'];
-    
+   
     //$hospital_registration_number = $_POST['patient_registration_no'];
     $department = $_POST['department'];
     $consultant_doctor = $_POST['consultant_doctor'];
     $phone_number = $_POST['phonenumber'];
+     $blood=$_POST['blood'];
+    $tempertaure=$_POST['tempertaure'];
 
 
-  $insertquery = "insert into patient(first_name, last_name, age, gender, address, citizenship_number, father_name, email_address, department, consultant_doctor, phone_number) values('$first_name', '$last_name', '$age', '$gender', '$address', '$citizenship_number', '$father_name','$email_address', '$department', '$consultant_doctor','$phone_number')";
+  $insertquery = "insert into patient(first_name, last_name, age, gender, address, citizenship_number, father_name, email_address, department, consultant_doctor, phone_number,blood,tempertaure) values('$first_name', '$last_name', '$age', '$gender', '$address', '$citizenship_number', '$father_name','$email_address', '$department', '$consultant_doctor','$phone_number','$blood','$tempertaure')";
 
   $res = mysqli_query($con,$insertquery);
   if ($res){
