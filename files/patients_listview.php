@@ -8,6 +8,7 @@
 	<p> This page is going to display all the information of the registered patients.</p>
 	 <!-- <h3>Search using patient's Registration Number</h3> -->
 	 <div class="main-div" >
+	 	<td> <a href="appointmentlist.php"> View appointment</a></td>
 	 	<h1> List of the registered patients</h1>
 	 	<input type="text" name="" id="userName" placeholder="Search names" onkeyup="searchFun()">
 	 	<div class="table-responsive">
@@ -62,6 +63,12 @@
 	 					<td><a href="#update">Update</a> <a href="#delete">Delete</a></td>
 	 					<td><i href="#update" class="fa fa-pencil-square-o" aria-hidden="true"></i> <i  href="#delete" class="fa fa-trash" aria-hidden="true"></i> 
 	 					<td> <a href="make_appoinment.php?hospital_registration_number=<?php echo $res['hospital_registration_number'];?>"> Make an appointment</a></td>
+
+
+
+
+
+		
 
 </td>
 
