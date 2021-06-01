@@ -87,10 +87,11 @@
 	 					<th>Gender</th>
 	 					<th>Address</th>
 	 					<th>Citizenship No.</th>
+	 					<th>Phone Number</th>
 	 					<!--
 	 					<th>Father's Name</th>
 	 					<th>Email Address</th>
-	 					<th>Phone Number</th> -->
+	 					 -->
 	 					
 	 				</tr>
 	 			</thead>
@@ -113,6 +114,7 @@
 	 					<td><?php echo $res['gender']; ?></td>
 	 					<td><?php echo $res['address']; ?></td>
                         <td><?php echo $res['citizenship_number']; ?></td>
+                        	<td><?php echo $res['phone_number']; ?>
 	 					<!--
 	 					<td><?php echo $res['father_name']; ?></td>
 	 					<td><?php echo $res['email_address']; ?></td>
@@ -276,6 +278,16 @@
                
 	 				?>">
                             </div>
+                             <div class="form-group mb-3">
+                                <label for="">Phone Number</label>
+                                <input type="text" name="phone_number" class="form-control" value="<?php 
+                                 $hospital_registration_number = $_GET['hospital_registration_number'];
+               $query = mysqli_query($con, "select * from patient WHERE hospital_registration_number  ='$hospital_registration_number'");while ($res = mysqli_fetch_array($query)) {?><?php echo $res['phone_number']; ?> <?php
+
+                        }
+               
+	 				?>">
+                            </div>
                             <div class="form-group mb-3">
                                 <label for="">Event Date & Time</label>
                                 <input type="datetime-local" name="event_dt" class="form-control">
@@ -393,10 +405,11 @@ if(isset($_POST['save_datetime']))
     $patient_id=$_POST['patient_id'];
     $Department=$_POST['Department'];
     $Consultant_Doctor=$_POST['Consultant_Doctor'];
+    $phone_number=$_POST['phone_number'];
 
-    $query = "INSERT INTO demo (name,eventdt,patient_id,Department,Consultant_Doctor) VALUES ('$name','$event_dt','$patient_id',
+    $query = "INSERT INTO demo (name,eventdt,patient_id,Department,Consultant_Doctor,phone_number) VALUES ('$name','$event_dt','$patient_id',
     '$Department',
-    '$Consultant_Doctor')";
+    '$Consultant_Doctor','$phone_number')";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
