@@ -28,6 +28,7 @@
 	 					<th>Phone Number</th> -->
 	 					<th>Department</th>
 	 					<th>Consultant Doctor</th>
+	 					<th>Registration Time </th>
 	 					<th colspan="2">Operation</th>
 	 				</tr>
 	 			</thead>
@@ -56,6 +57,7 @@
 	 					<td><?php echo $res['phone_number']; ?></td> -->
 	 					<td><?php echo $res['department']; ?></td>
 	 					<td><?php echo $res['consultant_doctor']; ?></td>
+	 					<td><?php echo $res['reg_date']; ?></td>
 	 					
 	 					<td><a href="#update">Update</a> <a href="#delete">Delete</a></td>
 	 					<td><i href="#update" class="fa fa-pencil-square-o" aria-hidden="true"></i> <i  href="#delete" class="fa fa-trash" aria-hidden="true"></i> 
